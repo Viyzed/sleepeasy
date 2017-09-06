@@ -36,7 +36,7 @@ function getLocation() {
         };
 
         infoWindow.setPosition(pos);
-        infoWindow.setContent('You Are Here');
+        infoWindow.setContent('You Are Now Here');
         infoWindow.open(map);
         map.setCenter(pos);
         map.setZoom(16);
