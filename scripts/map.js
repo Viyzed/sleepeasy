@@ -24,9 +24,9 @@ function initMap() {
   service = new google.maps.places.PlacesService(map);
 }
 
-function nearBySearch() {
+function nearBySearch(position) {
   return service.nearbySearch({
-    location: pos,
+    location: position,
     radius: 4024,
     type: ['sleep']
   }, callback);
@@ -43,7 +43,7 @@ function getLocation() {
           lng: position.coords.longitude
         };
 
-        nearBySearch();
+        nearBySearch(pos);
 
         infoWindow.setPosition(pos);
         infoWindow.setContent('You Are Here');
@@ -62,6 +62,7 @@ function getLocation() {
     } else {
         geocoder = new google.maps.Geocoder();
         geocodeAddress(geocoder, map);
+        nearBySearch(pos);
     }
   }
 
